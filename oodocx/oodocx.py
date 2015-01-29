@@ -73,7 +73,7 @@ COLOR_MAP = {
     'yellow': 'FFFF00'}
 
 
-class Docx():
+class Docx(object):
     def __init__(self, file=''):
         folder_number = 1
         self.write_dir = os.path.join(BASE_DIR, str(folder_number))
@@ -1022,7 +1022,7 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
                         align = celstyle[i]['align']
                     else:
                         align = 'left'
-                    cell.append(paragraph(c, pprops={'jc':{'val': 'center'}}))
+                    cell.append(paragraph(c, pprops={'jc':{'val': align}}))
             row.append(cell)
         table.append(row)
     return table
