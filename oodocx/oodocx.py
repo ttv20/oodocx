@@ -109,17 +109,14 @@ class Docx(object):
             for file in filenames:
                 if file[-4:] == '.xml' or file[-5:] == '.rels':
                     absdir = os.path.abspath(os.path.join(root, file))
-                    docstr = io.open(absdir, 'r', encoding='utf8')
+                    docstr = io.open(absdir, 'r', encoding='utf-8')
                     relpath = os.path.relpath(absdir, self.write_dir)
-                    xmlfile = (etree.fromstring(docstr.read().encode('utf_8')))
+                    xmlfile = (etree.fromstring(docstr.read().encode('utf-8')))
                     if file == '[Content_Types].xml':
                         self.contenttypes = xmlfile
                         self.xmlfiles[self.contenttypes] = relpath
                         # update self.contenttypes, as needed
-                        filetypes = {'gif':  'image/gif',
-                        'jpeg': 'image/jpeg',
-                        'jpg':  'image/jpeg',
-                        'png':  'image/png',
+                        filetypes = {
                         'rels': 'application/vnd.openxmlformats-package'
                                 '.relationships+xml',
                         'xml':  'application/xml'}
