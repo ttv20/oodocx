@@ -517,9 +517,8 @@ class Docx(object):
                            os.path.join(self.write_dir, relpath))[0]
             if not os.path.isdir(absolutepath):
                 os.mkdir(absolutepath)
-            newdoc = io.open(relpath, 'w')
-            newdoc.write(etree.tostring(
-            xmlfile, xml_declaration=True).decode(encoding='UTF-8'))
+            newdoc = io.open(relpath, 'wb')
+            newdoc.write(etree.tostring(xmlfile, encoding='UTF-8', xml_declaration=True))
             newdoc.close()
         files_to_ignore = ['.DS_Store']  # nuisance from some os's
         for dirpath, dirnames, filenames in os.walk('.'):
