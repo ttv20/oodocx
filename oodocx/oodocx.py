@@ -79,7 +79,7 @@ class Docx(object):
         self.write_dir = os.path.join(BASE_DIR, str(folder_number))
         while os.path.isdir(self.write_dir):
             folder_number += 1
-            self.write_dir = os.path.join(BASE_DIR,  str(folder_number))
+            self.write_dir = os.path.join(BASE_DIR, str(folder_number))
         # dictionary to connect element objects to their path in the docx file
         self.xmlfiles = {}
         try:
@@ -1239,7 +1239,7 @@ def add_comment(document, text, start, end=None, username='', initials=''):
         eggparent.index(egparent)):
             raise ValueError('end element cannot precede start element')
     id_number = write_files.setup_comments(document)
-    if start.tag == '{' + NSPREFIXES['w'] + '}p': # Insert commentRangeStart element
+    if start.tag == '{' + NSPREFIXES['w'] + '}p':  # Insert commentRangeStart element
         start.insert(0, makeelement('commentRangeStart',
         attributes={'id': id_number}))
     elif start.tag == '{' + NSPREFIXES['w'] + '}r':
@@ -1263,7 +1263,7 @@ def add_comment(document, text, start, end=None, username='', initials=''):
             run_pos += 1
         paragraph.insert(run_pos, makeelement('commentRangeStart',
         attributes={'id': id_number}))
-    if end.tag == '{' + NSPREFIXES['w'] + '}p': # Insert commentRangeEnd element
+    if end.tag == '{' + NSPREFIXES['w'] + '}p':  # Insert commentRangeEnd element
         end.append(makeelement('commentRangeEnd',
         attributes={'id': id_number}))
         run = makeelement('r')
@@ -1311,7 +1311,7 @@ def add_comment(document, text, start, end=None, username='', initials=''):
         attributes={'val': 'CommentReference'}))
         run.append(makeelement('commentReference',
         attributes={'id': id_number}))
-    date = datetime.datetime.now()              # Content for comments.xml
+    date = datetime.datetime.now()  # Content for comments.xml
     daystr = str(date.day)
     hourstr = str(date.hour)
     minutestr = str(date.minute)
