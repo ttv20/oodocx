@@ -120,13 +120,15 @@ class Docx(object):
                         'rels': 'application/vnd.openxmlformats-package'
                                 '.relationships+xml',
                         'xml':  'application/xml'}
+
                         default_elements = [child for child
-                        in self.contenttypes.iterchildren()
-                        if 'Default' in child.tag]
+                                            in self.contenttypes.iterchildren()
+                                            if 'Default' in child.tag]
+
                         for key, value in filetypes.items():
                             missing_filetype = True
                             for child in default_elements:
-                                if key == child.items()[0][1]:
+                                if key in (child.items()[0][1], child.items()[1][1]):
                                     missing_filetype = False
                             if missing_filetype:
                                 default_element = makeelement('Default',
