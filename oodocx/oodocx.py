@@ -166,6 +166,9 @@ class Docx(object):
                     elif file == 'webSettings.xml':
                         self.webSettings = xmlfile
                         self.xmlfiles[self.webSettings] = relpath
+                    elif file == 'numbering.xml':
+                        self.numbering = xmlfile
+                        self.xmlfiles[self.numbering] = relpath
         self.body = self.document.xpath('/w:document/w:body',
                                         namespaces=NSPREFIXES)[0]
 
