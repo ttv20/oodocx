@@ -18,8 +18,8 @@ import collections
 import stat
 import tempfile
 from lxml import etree
-import helper_functions
-import write_files
+from oodocx import helper_functions
+from oodocx import write_files
 
 log = logging.getLogger(__name__)
 TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'template')
@@ -155,8 +155,8 @@ class Docx(object):
                         self.fontTable = xmlfile
                         self.xmlfiles[self.fontTable] = relpath
                     elif file == 'settings.xml':
-                        self.styles = xmlfile
-                        self.xmlfiles[self.styles] = relpath
+                        self.settings = xmlfile
+                        self.xmlfiles[self.settings] = relpath
                     elif file == 'styles.xml':
                         self.styles = xmlfile
                         self.xmlfiles[self.styles] = relpath
