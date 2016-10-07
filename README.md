@@ -32,7 +32,7 @@ First of all, be sure to check out the /examples folder for basic examples of th
     d.body.insert(pos, oodocx.paragraph('Bananas!')) #lxml
     d.save(r'C:\users\bananstand\there's always money here.docx')
     
-    <h3>You also can merge few document into one file</h3>
+  <h3>You also can merge few document into one file</h3>
   
     from oodocx import oodocx
     d = oodocx.Docx()
