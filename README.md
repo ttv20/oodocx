@@ -18,17 +18,27 @@ computer)
 First of all, be sure to check out the /examples folder for basic examples of this module
   <h3>Create a new document, insert a paragraph of text, and save it</h3>
   
+    from oodocx import oodocx
     d = oodocx.Docx()
     d.body.append(oodocx.paragraph('Hello world!'))
     d.save('hello.docx')
 
   <h3>Open a document, insert a paragraph after the paragraph containing the word "apple", and save it somewhere else</h3>
   
+    from oodocx import oodocx
     d = oodocx.Docx(r'C:\users\applecart\apples.docx')
     apple_para = d.search('apple', result_type='paragraph')
     pos = body.index(apple_para) + 1 #lxml
     d.body.insert(pos, oodocx.paragraph('Bananas!')) #lxml
     d.save(r'C:\users\bananstand\there's always money here.docx')
+    
+    <h3>You also can merge few document into one file</h3>
+  
+    from oodocx import oodocx
+    d = oodocx.Docx()
+    d.merge('File.docx')
+    d.merge('anotherFile.docx')
+    d.save('FilAndAnotherFile.docx')
     
 Note that the index() and insert() methods in the fourth and fifth lines of the above code are from the underlying lxml module. Check out the documentation <a href='http://lxml.de/api/lxml.etree._Element-class.html'>here</a>.
     
