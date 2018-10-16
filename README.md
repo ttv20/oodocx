@@ -32,7 +32,9 @@ First of all, be sure to check out the /examples folder for basic examples of th
     d.body.insert(pos, oodocx.paragraph('Bananas!')) #lxml
     d.save(r'C:\users\bananstand\there's always money here.docx')
     
-  <h3>You also can merge few document into one file</h3>
+  Note that the index() and insert() methods in the fourth and fifth lines of the above code are from the underlying lxml module. Check out the documentation <a href='http://lxml.de/api/lxml.etree._Element-class.html'>here</a>.
+    
+ ### You also can merge few document into one file
   
     from oodocx import oodocx
     d = oodocx.Docx()
@@ -40,6 +42,5 @@ First of all, be sure to check out the /examples folder for basic examples of th
     d.merge('anotherFile.docx')
     d.save('FilAndAnotherFile.docx')
     
-Note that the index() and insert() methods in the fourth and fifth lines of the above code are from the underlying lxml module. Check out the documentation <a href='http://lxml.de/api/lxml.etree._Element-class.html'>here</a>.
-    
+
     
